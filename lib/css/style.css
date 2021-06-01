@@ -1,0 +1,132 @@
+#content-desktop {display: block; }
+#content-mobile {display: none; }
+#img-mobile {display:none;}
+.col-3 {float:left;width:30%;}
+.col-4 {float:left;width:40%;}
+#footer {
+     height:30vh;
+}
+@media screen and (max-width: 768px) {
+    #content-desktop {display: none;}
+    #content-mobile {display: block;}
+    #img-mobile {display:block;}
+    [class*="col-"] {
+       width: 100%;
+    }
+    #footer {
+     height:130vh;
+    }
+   #products > a {
+    text-decoration: none;
+    color:#ededed;
+    text-align: center;
+   }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0px;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+ h1 { font-size: 2.25em; } 
+ h2 { font-size: 1.875em; }
+ h3 { font-size: 1.5em; }
+ h4 { font-size: 1.125em; }
+ h5 { font-size: 0.875em; }
+ h6 { font-size: 0.75em; }
+
+.seperator-top {
+  background-image: url('/shops/daly/seperator-top.png');
+}
+.desktopnav {
+  background-color:#8C573A;
+}
+
+.desktopnav a {
+  background-color:transparent;
+  text-decoration: none;
+  color: #ededed;
+  
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ededed;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #ededed;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#address > a {
+    text-decoration: none;
+    color:#ededed;
+}
+
+#address {
+    text-decoration: none;
+    color:#ededed;
+    
+}
+
+#address > a::before{
+    
+    content: '\A';
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;
+    opacity: 1.0;
+    border-bottom: 1px solid #ccc ;
+}
+
+#products > a {
+    text-decoration: none;
+    color:#ededed;
+}
+
+#products {
+    text-decoration: none;
+    color:#ededed;
+    
+}
+
+#products > a::before{
+    
+    content: '\A';
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;
+    opacity: 1.0;
+    border-bottom: 1px solid #ccc ;
+}

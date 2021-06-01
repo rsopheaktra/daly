@@ -1,0 +1,45 @@
+body {
+    
+}
+#address > a {
+    text-decoration: none;
+    color:#FFFFFF;
+}
+
+.address > a::before{
+    
+    content: '\A';
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;
+    opacity: 1.0;
+    border-bottom: 1px solid #ccc ;
+}
+.navbar-default {
+    background-color: #4F8FFF !important;
+    background-image: none;
+    opacity: 0.6;
+    color: black !important;
+}
+
+.navbar-header{
+    background-color: #4F8FFF !important;
+    opacity: 1.0;
+    color:black;
+}
+.navbar-toggle {
+    background-color: #8C573A !important;
+    border-color: #f1f1f1;
+    background-image: none;
+    color:black;
+}
+
+.navbar-default .navbar-brand  {
+    color:black;
+    font-size: 16px;
+}
+
+
+.main_slide {
+    height:100vh;
+}
