@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+
+<head>
+    <!-- Basic page needs ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" hreflang="x-default" href="https://cliknfind.fr">
+    <link rel="alternate" hreflang="fr_FR" href="https://cliknfind.fr">
+    <link rel="stylesheet" href="../lib/css/style.css">
+    <link rel="alternate" hreflang="fr_FR" href="http://daly.fr/" />
+    <link href="../lib/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+    <link rel="stylesheet" href="../lib/css/style.css">
+    <!--link rel="stylesheet" href="lib/css/responsive.css"-->
+    
+    <!-- Add jQuery library -->
+	<script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="../lib/jquery.mousewheel.pack.js?v=3.1.3"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../lib/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="../lib/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../lib/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="../lib/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../lib/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="../lib/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="../lib/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' de ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+
+		body {
+			margin: 0 auto;
+		}
+	</style>
+    
+</head>
+<body>
+<div style="width:100%; position: fixed; background-color:#8C573A;">
+<div id="mobilenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/daly.html">ACCUEIL</a>
+  <a href="/products/boulangeries.html">BOULANGERIE</a>
+  <a href="/products/viennoiseries.html">VIENNOISERIE</a>
+  <a href="/products/patisseries.html">PÂTISSERIE</a>
+  <a href="/products/plat-vegetarien.html">PLÂT VÉGÉTARIEN</a>
+</div>
+
+ <div >
+    <span  id="content-mobile" style="font-size:30px;cursor:pointer;text-align:right;" onclick="openNav()">&#9776;</span>
+    <img id="content-mobile"
+        src="../shops/daly/logo.png" style="width:60px;height:60px;margin-top:-40px;"alt="daly"/>
+ </div>      
+</div>
+<script>
+function openNav() {
+  document.getElementById("mobilenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mobilenav").style.width = "0";
+}
+</script>
+ 
+  <div id="content-desktop" style="width:100%; position: fixed; background-color:#8C573A;" class="desktopnav">
+    <div id="address" style="margin-bottom:20px; padding-bottom:20px; text-decoration: none;color:#FFFFFF; border-bottom:1px solid #ccc;">
+        <a href="tel: +33 388 470 256">
+          <i class="fa fa-phone"></i>
+          (33)388-470-256
+        </a>
+        <a href="mailto:cantact@daly.fr">
+          <i class="fa fa-envelope"></i>
+          contact@daly.fr
+        </a>
+        <!--a href="">
+          <i class="fa fa-clock-o"></i>
+          Overture : de 7h00 à 18h00
+        </a-->
+      </div>
+      <div id="menu" class="desktopnav" style="color:blue; text-align:right; ">
+        <a href="/daly.html">ACCUEIL</a>
+        <a href="/products/boulangeries.html">BOULANGERIE</a>
+        <a href="/products/patisseries.html">PÂTISSERIE</a>
+        <a href="/products/viennoiseries.html">VIENNOISERIE</a>
+        <a href="/products/plat-vegetarien.html">PLÂT VÉGÉTARIEN</a>
+      </div>  
+    <img src="../shops/daly/logo.png" style="text-align:left;width:60px;height:60px;margin-top:-40px; padding:5px; "alt="daly"/>
+        
+  </div>
+  <div id="mainPage">
+    
+      <div class="main_slide" style="background: url('../shops/daly/ms_banner_img.jpg'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height:10vh; ">
+        
+      </div>
+      <div style="background-image: url('../shops/daly/seperator-top.png');height:26px;margin-top:-40px;"></div>
+      <section class="aboutus" style="padding-top: 20px; padding-bottom: 20px; min-width:80%;height:auto; margin-top:-15px;background: url('../shops/daly/parallax1.png'); background-position: center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; text-align:center;">
+          <h3>Tous Les Produits </h3>
+            <p>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="boulangeries/13662556.jpg"><img src="boulangeries/13662556_copy_150x150.jpg" alt="boulangerie" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="patisseries/118173712.jpg"><img src="patisseries/118173712_copy_150x150.jpg" alt="" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="patisseries/118787862.jpg"><img src="patisseries/118787862_copy_150x150.jpg" alt="" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="viennoiseries/95362519.jpg"><img src="viennoiseries/95362519_copy_150x150.jpg" alt="" /></a>
+            </p>
+      </section>
+      <div style="background-image: url('../shops/daly/seperator-bottom.png');height:10px;margin-top:-20px;"></div>
+      <section class="openedhours" style="padding:20%;vertical-align:center;height:50vh; text-align:center;">
+          <h3>Des Heures d'Ouvertures </h3>
+        <p>Lundi : de 07h00 à 20h00 </p>
+        <p>Mardi : de 07h00 à 20h00 </p>
+        <p>Mercredi : de 07h00 à 20h00 </p>
+        <p>Jeudi : de 07h00 à 20h00 </p>
+        <p>Vendredi : de 07h00 à 20h00 </p>
+        <p>Samedi : de 07h00 à 20h00 </p>
+        <p>Dimanche : de 07h00 à 20h00 </p>
+      </section>
+      
+  </div>
+    <div id="footer" style="width:100%;background-color:#000000;color:#FFFFFF">
+        <div style="text-align:center;" class="col-3" id="address">
+              <h3 >L'adresse</h3>
+            <a href="tel: +33 388 470 256">
+          <i class="fa fa-phone"></i>
+          (33)388-470-256
+        </a>
+        <a href="mailto:cantact@daly.fr">
+          <i class="fa fa-envelope"></i>
+          contact@daly.fr
+        </a>
+        <!--a href="">
+          <i class="fa fa-clock-o"></i>
+          Overture : de 7h00 à 18h00
+        </a-->
+        </div>
+        <div style="text-align:center;" class="col-3" id="nos_produits">
+            <h3 style="text-align:center;">Nos Produits</h3>
+            <p id="products" style="">
+                <a style="color:white;" href="/daly.html">ACCUEIL</a>
+                <a href="/products/boulangeries.html">BOULANGERIE</a>
+                <a href="/products/patisseries.html">PÂTISSERIE</a>
+                <a href="/products/viennoiseries.html">VIENNOISERIE</a>
+                <a href="/products/plat-vegetarien.html">PLÂT VÉGÉTARIEN</a>
+            </p>
+            
+        </div>
+        <div style="text-align:center;" class="col-4" id="gallery">
+            <h3>Galleries</h3>
+            <p>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="boulangeries/13662556.jpg"><img src="boulangeries/13662556_copy_150x150.jpg" alt="boulangerie" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="patisseries/118173712.jpg"><img src="patisseries/118173712_copy_150x150.jpg" alt="" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="patisseries/118787862.jpg"><img src="patisseries/118787862_copy_150x150.jpg" alt="" /></a>
+                <a class="fancybox-buttons" data-fancybox-group="button" href="viennoiseries/95362519.jpg"><img src="viennoiseries/95362519_copy_150x150.jpg" alt="" /></a>
+            </p>
+        </div>
+        <div id="ft-footer" style="text-align:center; font-size:2em;">
+            <marquee behavior="alternate"> Copyright © Daly.fr 2021. Power By cliknfind.fr </marquee>
+        </div>
+    </div>
+</body>
+</html> 
