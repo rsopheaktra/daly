@@ -1,0 +1,10 @@
+A developer will place -webkit- followed by some code, meaning that the code will only run on Chrome, Safari, Opera and iOS browsers. Here is a complete list:
+
+-webkit- (Chrome, Safari, newer versions of Opera, almost all iOS browsers (including Firefox for iOS); basically, any WebKit based browser)
+
+-moz- (Firefox)
+
+-o- (Old, pre-WebKit, versions of Opera)
+
+-ms- (Internet Explorer and Microsoft Edge)
+
